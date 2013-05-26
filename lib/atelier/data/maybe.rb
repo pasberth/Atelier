@@ -1,6 +1,6 @@
-require 'aterier/control/monad'
+require 'atelier/control/monad'
 
-module Aterier
+module Atelier
 
   module Data
 

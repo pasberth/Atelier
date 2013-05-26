@@ -4,7 +4,7 @@ module Aterier
 
   module Data
 
-    module Maybe; include Control::Monad
+    module Maybe; include Control::Monad::Monad
 
       extend self
 

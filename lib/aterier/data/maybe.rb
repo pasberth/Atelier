@@ -6,6 +6,8 @@ module Aterier
 
     module Maybe; include Control::Monad
 
+      extend self
+
       def unit(a)
         a
       end

@@ -31,3 +31,19 @@ Examples
   # [3, 4]
   # [3, 5]
   # [3, 6]
+
+.. code:: ruby
+
+  require 'aterier'
+
+  N = Atelier::Test::Contract::Notary.new
+
+  class C
+
+    N.unitest { assert 1 == 2 }
+
+    def f(x)
+      N.unittest { assert  x.is_a?(String) }
+      x * 42
+    end
+  end

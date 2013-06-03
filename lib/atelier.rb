@@ -1,3 +1,4 @@
+require 'atelier/environment/importable'
 require 'atelier/control/functor'
 require 'atelier/control/monad'
 require 'atelier/data/maybe'

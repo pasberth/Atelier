@@ -14,7 +14,7 @@ Examples
 
 .. code:: ruby
 
-  require 'aterier'
+  require 'atelier'
 
   Aterier::Data::Maybe.product(1, 2, 3) { |x, y, z| p [x, y, z] }
   # [1, 2, 3]
@@ -31,3 +31,35 @@ Examples
   # [3, 4]
   # [3, 5]
   # [3, 6]
+
+**Importable**
+
+.. code:: ruby
+
+  require 'atelier'
+
+  module Functions; extend Atelier::Environment::Importable
+
+    def max(a, b)
+      [a, b].max
+    end
+
+    def min(a, b)
+      [a, b].min
+    end
+  end
+
+  module A; extend Functions.only(:max)
+    p max(1, 2) # => 2
+    p min(1, 2) # NoMethodError
+  end
+
+  module B; extend Functions.hiding(:max)
+    p min(1, 2) # => 1
+    p max(1, 2) # NoMethodError
+  end
+
+  module C; extend Functions[:max => :f_max]
+    p f_max(1, 2) # => 2
+    p max(1, 2) # NoMethodError
+  end

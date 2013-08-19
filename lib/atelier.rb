@@ -1,5 +1,7 @@
 require 'atelier/environment/importable'
+require 'atelier/environment/symbol'
 require 'atelier/control/functor'
 require 'atelier/control/monad'
 require 'atelier/data/maybe'
 require 'atelier/data/list'
+require 'atelier/core_ext'

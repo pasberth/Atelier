@@ -63,3 +63,11 @@ Examples
     p f_max(1, 2) # => 2
     p max(1, 2) # NoMethodError
   end
+
+.. code:: ruby
+
+  require 'atelier'
+  require 'json'
+
+  p JSON.parse '{"x":42}', +:symbolize_names
+  # => {:x=>42}

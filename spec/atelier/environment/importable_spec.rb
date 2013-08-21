@@ -2,7 +2,7 @@ require 'atelier'
 
 describe Atelier::Environment::Importable do
 
-  module Functions; extend Atelier::Environment::Allocatable; extend Atelier::Environment::Importable
+  module Functions
 
     def x
       :x

@@ -2,11 +2,10 @@ require 'atelier'
 
 describe Atelier::Environment::Delegatable do
 
-  class DelegatableHash < Hash; extend Atelier::Environment::Delegatable
-  end
+  ImportableHash = Hash.to_module
 
   class IncludingIt
-    include DelegatableHash.to_module
+    include ImportableHash
   end
 
   subject { IncludingIt.new }
@@ -22,9 +21,6 @@ describe Atelier::Environment::Delegatable do
   end
 
   context "And importable" do
-
-    ImportableHash = DelegatableHash.to_module
-    module ImportableHash; extend Atelier::Environment::Allocatable; extend Atelier::Environment::Importable; end
 
     subject { ImportableHash.only(:[], :[]=).new }
 

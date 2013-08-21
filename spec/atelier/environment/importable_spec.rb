@@ -2,7 +2,7 @@ require 'atelier'
 
 describe Atelier::Environment::Importable do
 
-  module Functions; extend Atelier::Environment::Importable
+  module Functions; extend Atelier::Environment::Allocatable; extend Atelier::Environment::Importable
 
     def x
       :x
@@ -10,12 +10,6 @@ describe Atelier::Environment::Importable do
 
     def y
       :y
-    end
-
-    def self.new; m = self
-      Class.new {
-        include m
-      }.new
     end
   end
 

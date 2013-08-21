@@ -1,4 +1,6 @@
 require 'atelier/environment/importable'
+require 'atelier/environment/allocatable'
+require 'atelier/environment/delegatable'
 require 'atelier/environment/symbol'
 require 'atelier/control/functor'
 require 'atelier/control/monad'

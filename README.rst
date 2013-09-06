@@ -32,6 +32,19 @@ Examples
   # [3, 5]
   # [3, 6]
 
+.. code:: ruby
+
+  include Atelier::Data::Maybe[:product => :maybe].only(:maybe)
+  include Atelier::Data::List[:product => :foreach].only(:foreach)
+
+  maybe 1, 2, 3 do |x, y, z|
+    p [x, y, z]
+  end
+
+  foreach [1, 2, 3], [4, 5, 6] do |x, y|
+    p [x, y]
+  end
+
 **Importable**
 
 .. code:: ruby

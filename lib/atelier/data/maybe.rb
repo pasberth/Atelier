@@ -4,9 +4,7 @@ module Atelier
 
   module Data
 
-    module Maybe; include Control::Monad::Monad
-
-      extend self
+    module MaybeMethods; include Control::Monad::Monad
 
       def unit(a)
         a
@@ -16,5 +14,8 @@ module Atelier
         yield m unless m.nil?
       end
     end
+
+    Maybe = MaybeMethods.to_class.to_module
+    Maybe.module_eval { extend self }
   end
 end

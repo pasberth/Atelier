@@ -4,9 +4,7 @@ module Atelier
 
   module Data
 
-    module List; include Control::Monad::Monad
-
-      extend self
+    module ListMethods; include Control::Monad::Monad
 
       def unit(a)
         [a]
@@ -16,5 +14,8 @@ module Atelier
         m.flat_map(&k)
       end
     end
+
+    List = ListMethods.to_class.to_module
+    List.module_eval { extend self }
   end
 end
